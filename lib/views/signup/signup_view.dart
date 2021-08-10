@@ -10,7 +10,8 @@ import 'package:template_flutter_supabase/views/signup/signup_viewmodel.dart';
 import 'signup_view.form.dart';
 
 @FormView(fields: [
-  FormTextField(name: 'name'),
+  FormTextField(name: 'first_name'),
+  FormTextField(name: 'last_name'),
   FormTextField(name: 'email'),
   FormTextField(name: 'password', isPassword: true),
 ])
@@ -38,9 +39,15 @@ class SignupView extends StatelessWidget with $SignupView {
                   children: [
                     SizedBox(height: 40),
                     AppTextFormField(
-                      labelText: 'Name',
-                      controller: nameController,
-                      focusNode: nameFocusNode,
+                      labelText: 'First Name',
+                      controller: first_nameController,
+                      focusNode: first_nameFocusNode,
+                      helperText: 'Required',
+                    ),
+                    AppTextFormField(
+                      labelText: 'Last Name',
+                      controller: last_nameController,
+                      focusNode: last_nameFocusNode,
                       helperText: 'Required',
                     ),
                     SizedBox(height: 10),

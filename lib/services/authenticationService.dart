@@ -81,12 +81,8 @@ class AuthenticationService {
   }
 
   Future<AppUser?> fetchUser({required String id}) async {
-    final response = await supabase
-        .from("app_users")
-        .select()
-        .eq('id', id)
-        .single()
-        .execute();
+    final response =
+        await supabase.from("users").select().eq('id', id).single().execute();
 
     _logger.i(
       'Count: ${response.count}, Status: ${response.status}, Data: ${response.data}',
@@ -106,11 +102,12 @@ class AuthenticationService {
 
   Future<PostgrestResponse> _createUser(User user, AuthDto payload) {
     return supabase
-        .from("app_users")
+        .from("users")
         .insert(
           AppUser(
             id: user.id,
-            name: payload.name!,
+            first_name: payload.first_name!,
+            last_name: payload.last_name!,
             email: user.email,
           ),
         )

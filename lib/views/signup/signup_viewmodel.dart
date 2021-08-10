@@ -25,11 +25,14 @@ class SignupViewModel extends FormViewModel {
 
       final user = await _authService.signUp(
         payload: AuthDto(
-          email: emailValue ?? '',
-          password: passwordValue ?? '',
-          name: nameValue ?? '',
-        ),
+            email: emailValue ?? '',
+            password: passwordValue ?? '',
+            first_name: firstNameValue ?? '',
+            last_name: lastNameValue),
       );
+      _logger.i("emailValue = " + passwordValue!);
+
+      _logger.i("passwordValue = " + passwordValue!);
 
       if (user == null) {
         setError('Fill in all required fields.');

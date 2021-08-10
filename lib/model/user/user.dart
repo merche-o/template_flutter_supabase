@@ -6,7 +6,8 @@ part 'user.g.dart';
 class AppUser with _$AppUser {
   const factory AppUser({
     required String id,
-    required String name,
+    required String last_name,
+    required String first_name,
     required String email,
   }) = _AppUser;
 
@@ -19,7 +20,8 @@ class AuthDto with _$AuthDto {
   const factory AuthDto({
     required String email,
     required String password,
-    String? name,
+    String? last_name,
+    String? first_name,
   }) = _AuthDto;
 
   factory AuthDto.fromJson(Map<String, dynamic> json) =>

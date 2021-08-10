@@ -2,7 +2,6 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/services/authenticationService.dart';
 import 'package:template_flutter_supabase/services/localStorageService.dart';
-import 'package:template_flutter_supabase/services/supabaseService.dart';
 import 'package:template_flutter_supabase/views/home/home_view.dart';
 import 'package:template_flutter_supabase/views/login/login_view.dart';
 import 'package:template_flutter_supabase/views/signup/signup_view.dart';
