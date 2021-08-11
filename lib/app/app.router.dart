@@ -11,6 +11,7 @@ import 'package:stacked/stacked.dart';
 
 import '../views/home/home_view.dart';
 import '../views/login/login_view.dart';
+import '../views/searchpage/search_view.dart';
 import '../views/signup/signup_view.dart';
 import '../views/startup/startup_view.dart';
 
@@ -19,11 +20,13 @@ class Routes {
   static const String homeView = '/home-view';
   static const String loginView = '/login-view';
   static const String signupView = '/signup-view';
+  static const String searchView = '/search-view';
   static const all = <String>{
     startupView,
     homeView,
     loginView,
     signupView,
+    searchView,
   };
 }
 
@@ -35,6 +38,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.loginView, page: LoginView),
     RouteDef(Routes.signupView, page: SignupView),
+    RouteDef(Routes.searchView, page: SearchView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -66,6 +70,12 @@ class StackedRouter extends RouterBase {
       );
       return MaterialPageRoute<dynamic>(
         builder: (context) => SignupView(key: args.key),
+        settings: data,
+      );
+    },
+    SearchView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => SearchView(),
         settings: data,
       );
     },

@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/services/authenticationService.dart';
 import 'package:template_flutter_supabase/services/localStorageService.dart';
 import 'package:template_flutter_supabase/views/home/home_view.dart';
 import 'package:template_flutter_supabase/views/login/login_view.dart';
+import 'package:template_flutter_supabase/views/searchpage/search_view.dart';
 import 'package:template_flutter_supabase/views/signup/signup_view.dart';
 import 'package:template_flutter_supabase/views/startup/startup_view.dart';
 
@@ -11,7 +13,8 @@ import 'package:template_flutter_supabase/views/startup/startup_view.dart';
   MaterialRoute(page: StartupView, initial: true),
   MaterialRoute(page: HomeView),
   MaterialRoute(page: LoginView),
-  MaterialRoute(page: SignupView)
+  MaterialRoute(page: SignupView),
+  MaterialRoute(page: SearchView)
   // CupertinoRoute(page: BottomNavExample),
   // CustomRouter(page: StreamCounterView),
 ], dependencies: [
