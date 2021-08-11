@@ -78,6 +78,7 @@ class AuthenticationService {
     }
     _logger.i(response.rawData);
     await _localStorageService.removeItem('token');
+    _user = null;
     return;
   }
 

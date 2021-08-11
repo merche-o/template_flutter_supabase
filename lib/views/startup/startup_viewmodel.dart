@@ -14,16 +14,16 @@ class StartupViewModel extends BaseViewModel {
 
     await _authService.initialize();
 
-    if (_authService.hasUser) {
+    if (_authService.user != null) {
       return await _navigationService.replaceWithTransition(
         HomeView(),
         transition: 'upToDown',
       );
+    } else {
+      return await _navigationService.replaceWithTransition(
+        LoginView(),
+        transition: 'upToDown',
+      );
     }
-
-    return await _navigationService.replaceWithTransition(
-      LoginView(),
-      transition: 'upToDown',
-    );
   }
 }
