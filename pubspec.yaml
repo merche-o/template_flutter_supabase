@@ -35,10 +35,10 @@ dependencies:
   json_serializable: ^4.1.4
   freezed: ^0.14.2
   postgrest: ^0.1.4
-  supabase_flutter: ^0.0.6
+  supabase_flutter: ^0.1.0
   logger: ^1.0.0
   shared_preferences: ^2.0.6
-  supabase_addons: ^0.0.7+1
+  supabase: ^0.1.0
 
 
 dev_dependencies:

@@ -21,7 +21,6 @@ class SignupViewModel extends FormViewModel {
   Future<void> signUp() async {
     try {
       setBusy(true);
-      _logger.i(formValueMap);
 
       final user = await _authService.signUp(
         payload: AuthDto(
@@ -30,9 +29,6 @@ class SignupViewModel extends FormViewModel {
             first_name: firstNameValue ?? '',
             last_name: lastNameValue),
       );
-      _logger.i("emailValue = " + passwordValue!);
-
-      _logger.i("passwordValue = " + passwordValue!);
 
       if (user == null) {
         setError('Fill in all required fields.');

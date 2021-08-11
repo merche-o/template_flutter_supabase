@@ -6,8 +6,9 @@ import 'package:template_flutter_supabase/config/initSupabase.dart';
 import 'app/app.router.dart';
 
 void main() {
-  setupLocator();
   setupSupabase();
+  setupLocator();
+
   runApp(MyApp());
 }
 

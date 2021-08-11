@@ -53,6 +53,7 @@ class AuthenticationService {
   }
 
   Future<AppUser?> signUp({required AuthDto payload}) async {
+    _logger.i(payload.toJson().toString());
     final response =
         await supabase.auth.signUp(payload.email, payload.password);
 
@@ -103,12 +104,12 @@ class AuthenticationService {
   Future<PostgrestResponse> _createUser(User user, AuthDto payload) {
     return supabase
         .from("users")
-        .insert(
+        .upsert(
           AppUser(
             id: user.id,
             first_name: payload.first_name!,
             last_name: payload.last_name!,
-            email: user.email,
+            email: user.email!,
           ),
         )
         .execute();
