@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/app/app.locator.dart';
+import 'package:template_flutter_supabase/app/app.router.dart';
 import 'package:template_flutter_supabase/services/authenticationService.dart';
 
 class SideDrawer extends StatelessWidget {
   final _authService = locator<AuthenticationService>();
+  final _navService = locator<NavigationService>();
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +28,12 @@ class SideDrawer extends StatelessWidget {
           ),
         ),
         ListTile(
-          leading: Icon(Icons.logout),
-          title: Text('logout'),
-          onTap: () => {_authService.signOut()},
-        )
+            leading: Icon(Icons.logout),
+            title: Text('logout'),
+            onTap: () => {
+                  _authService.signOut(),
+                  _navService.clearStackAndShow(Routes.startupView)
+                })
       ],
     ));
   }
