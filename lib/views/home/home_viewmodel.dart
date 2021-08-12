@@ -7,4 +7,12 @@ import 'package:template_flutter_supabase/services/authenticationService.dart';
 class HomeViewModel extends BaseViewModel {
   String _title = 'Home View';
   String get title => _title;
+  int _bodyIndex = 0;
+  int get bodyIndex => _bodyIndex;
+  void changeBody(int index) {
+    if (index == 0) {}
+    _bodyIndex = index;
+  }
+
+  notifyListeners();
 }

@@ -4,47 +4,54 @@ import 'package:template_flutter_supabase/app/app.locator.dart';
 import 'package:template_flutter_supabase/app/app.router.dart';
 import 'package:template_flutter_supabase/uicomponents/bottom_bar_viewmodel.dart';
 import 'package:stacked/stacked.dart';
+import 'package:template_flutter_supabase/views/home/home_view.dart';
+import 'package:template_flutter_supabase/views/home/home_viewmodel.dart';
 
 class BottomBar extends StatelessWidget {
   final _navService = locator<NavigationService>();
-
+  int _index = 2;
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<BottomBarViewModel>.reactive(
-        builder: (context, model, child) => BottomAppBar(
-                child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                IconButton(
-                    icon: Icon(Icons.menu,
-                        color: _navService.currentRoute == ""
-                            ? Colors.blue
-                            : Colors.black),
-                    onPressed: () {
+        builder: (context, model, child) => BottomNavigationBar(
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.menu, color: Colors.black), label: ""
+                    /*  onPressed: () {
                       Scaffold.of(context).openDrawer();
-                    }),
-                IconButton(
-                    icon: Icon(Icons.search,
-                        color: _navService.currentRoute == Routes.searchView
-                            ? Colors.blue
-                            : Colors.black),
+                    }*/
+                    ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.search, color: Colors.black),
+                  label: "",
+                  /*,
                     onPressed: () {
                       model.moveToSearch();
-                    }),
-                IconButton(
-                    icon: Icon(Icons.home),
-                    color: ((_navService.currentRoute == Routes.homeView) ||
-                            (_navService.currentRoute == "/() => Widget"))
-                        ? Colors.blue
-                        : Colors.black,
-                    onPressed: () {
+                    }*/
+                ),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.home, color: Colors.black), label: ""
+
+                    /* onPressed: () {
                       model.moveToHome();
-                    }),
-                IconButton(
-                    icon: Icon(Icons.shopping_basket_outlined),
-                    onPressed: () {}),
+                    }*/
+                    ),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.shopping_basket_outlined), label: ""),
               ],
-            )),
+              onTap: (index) {
+                _index = index;
+                if (index == 0) {
+                  Scaffold.of(context).openDrawer();
+                } else {
+                  ((((Scaffold.of(context) as HomeView).build(context)
+                              as ViewModelBuilder<HomeViewModel>)
+                          .viewModelBuilder) as HomeViewModel)
+                      .changeBody(index);
+                }
+              },
+              selectedItemColor: Colors.blue,
+            ),
         viewModelBuilder: () => BottomBarViewModel());
   }
 }

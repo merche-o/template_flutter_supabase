@@ -20,13 +20,13 @@ class FloatingProfileButtonModel extends BaseViewModel {
   ImageProvider? get image => _image;
 
   FloatingProfileButtonModel() {
-    returnImage();
+    returnProfileImage();
   }
 
-  Future<bool> returnImage() async {
+  Future<bool> returnProfileImage() async {
     String? imageUrl = _authService.user?.avatar_url;
     if (imageUrl == null) {
-      _image = AssetImage('assets/images/noavatar.jpeg');
+      _image = AssetImage('assets/images/avatar.jpeg');
     } else {
       _image = await _localStoreService.getImage("avatar");
       if (_image == null) {
@@ -36,7 +36,7 @@ class FloatingProfileButtonModel extends BaseViewModel {
           _image = MemoryImage(response.data!);
           await _localStoreService.saveImage("avatar", response.data!);
         } else {
-          _image = AssetImage('assets/images/noavatar.jpeg');
+          _image = AssetImage('assets/images/avatar.jpeg');
         }
       }
     }

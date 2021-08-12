@@ -9,13 +9,8 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<SearchViewModel>.reactive(
-      builder: (context, model, child) => Scaffold(
-        drawer: SideDrawer(),
-        body: Center(
-          child: Text(model.title),
-        ),
-        bottomNavigationBar: BottomBar(),
-        floatingActionButton: FloatingProfileButton(),
+      builder: (context, model, child) => Center(
+        child: Text(model.title),
       ),
       viewModelBuilder: () => SearchViewModel(),
     );
