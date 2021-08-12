@@ -9,6 +9,7 @@ class AppUser with _$AppUser {
     required String last_name,
     required String first_name,
     required String email,
+    required String? avatar_url,
   }) = _AppUser;
 
   factory AppUser.fromJson(Map<String, dynamic> json) =>

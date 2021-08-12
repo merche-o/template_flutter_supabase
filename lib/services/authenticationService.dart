@@ -107,11 +107,11 @@ class AuthenticationService {
         .from("users")
         .upsert(
           AppUser(
-            id: user.id,
-            first_name: payload.first_name!,
-            last_name: payload.last_name!,
-            email: user.email!,
-          ),
+              id: user.id,
+              first_name: payload.first_name!,
+              last_name: payload.last_name!,
+              email: user.email!,
+              avatar_url: null),
         )
         .execute();
   }

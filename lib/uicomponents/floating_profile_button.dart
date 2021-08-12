@@ -6,21 +6,20 @@ import 'package:template_flutter_supabase/app/app.router.dart';
 
 import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/app/app.locator.dart';
-
-import 'bottom_bar_viewmodel.dart';
+import 'package:template_flutter_supabase/uicomponents/floating_profile_buttonmodel.dart';
 
 class FloatingProfileButton extends StatelessWidget {
   final _navService = locator<NavigationService>();
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<BottomBarViewModel>.reactive(
+    return ViewModelBuilder<FloatingProfileButtonModel>.reactive(
         builder: (context, model, child) => FloatingActionButton(
-              onPressed: () {},
-              child: CircleAvatar(
-                  radius: 25,
-                  backgroundImage: AssetImage('assets/images/noavatar.jpeg')),
-            ),
-        viewModelBuilder: () => BottomBarViewModel());
+            onPressed: () {},
+            child: CircleAvatar(
+              radius: 25,
+              backgroundImage: model.image,
+            )),
+        viewModelBuilder: () => FloatingProfileButtonModel());
   }
 }

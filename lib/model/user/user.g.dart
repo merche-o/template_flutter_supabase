@@ -12,6 +12,7 @@ _$_AppUser _$_$_AppUserFromJson(Map<String, dynamic> json) {
     last_name: json['last_name'] as String,
     first_name: json['first_name'] as String,
     email: json['email'] as String,
+    avatar_url: json['avatar_url'] as String?,
   );
 }
 
@@ -21,6 +22,7 @@ Map<String, dynamic> _$_$_AppUserToJson(_$_AppUser instance) =>
       'last_name': instance.last_name,
       'first_name': instance.first_name,
       'email': instance.email,
+      'avatar_url': instance.avatar_url,
     };
 
 _$_AuthDto _$_$_AuthDtoFromJson(Map<String, dynamic> json) {
