@@ -17,14 +17,15 @@ class BottomBarViewModel extends BaseViewModel {
   }
 
   void moveToHome() {
-    if (_navService.currentRoute != Routes.homeView) {
-      _logger.i(_navService.previousRoute);
+    if (_navService.currentRoute != Routes.homeView &&
+        _navService.currentRoute != "/() => Widget") {
       _navService.clearStackAndShow(Routes.homeView);
     }
   }
 
   void moveToSearch() {
-    if (_navService.currentRoute != Routes.searchView)
+    if (_navService.currentRoute != Routes.searchView) {
       _navService.clearStackAndShow(Routes.searchView);
+    }
   }
 }

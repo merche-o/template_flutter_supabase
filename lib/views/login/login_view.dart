@@ -11,7 +11,7 @@ import 'package:template_flutter_supabase/views/login/login_viewmodel.dart';
 import 'login_view.form.dart';
 
 @FormView(fields: [
-  FormTextField(name: 'email', initialValue: "email"),
+  FormTextField(name: 'email'),
   FormTextField(name: 'password', isPassword: true)
 ])
 class LoginView extends ViewModelBuilderWidget<LoginViewModel> with $LoginView {

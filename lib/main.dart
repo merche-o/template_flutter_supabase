@@ -20,6 +20,11 @@ class MyApp extends StatelessWidget {
       // If you've added the stacked_services package then set the navigatorKey, otherwise set
       // your own navigator key
       navigatorKey: StackedService.navigatorKey,
+
+      navigatorObservers: [StackedService.routeObserver],
+
+      ///<- Here
+
       // Construct the StackedRouter and set the onGenerateRoute function
       onGenerateRoute: StackedRouter().onGenerateRoute,
       theme: ThemeData(

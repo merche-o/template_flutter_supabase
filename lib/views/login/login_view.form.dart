@@ -13,8 +13,7 @@ const String EmailValueKey = 'email';
 const String PasswordValueKey = 'password';
 
 mixin $LoginView on StatelessWidget {
-  final TextEditingController emailController =
-      TextEditingController(text: 'email');
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();

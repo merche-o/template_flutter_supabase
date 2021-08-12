@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:template_flutter_supabase/uicomponents/bottom_bar.dart';
+import 'package:template_flutter_supabase/uicomponents/floating_profile_button.dart';
 import 'package:template_flutter_supabase/uicomponents/side_drawer.dart';
 import 'package:template_flutter_supabase/views/searchpage/search_viewmodel.dart';
 
@@ -14,9 +15,7 @@ class SearchView extends StatelessWidget {
           child: Text(model.title),
         ),
         bottomNavigationBar: BottomBar(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: null,
-        ),
+        floatingActionButton: FloatingProfileButton(),
       ),
       viewModelBuilder: () => SearchViewModel(),
     );
