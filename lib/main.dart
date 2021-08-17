@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       // If you've added the stacked_services package then set the navigatorKey, otherwise set
       // your own navigator key
       navigatorKey: StackedService.navigatorKey,

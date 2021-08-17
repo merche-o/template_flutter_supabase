@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:stacked/stacked_annotations.dart';
-import 'package:supabase/supabase.dart' as supabases;
 
 import 'package:stacked/stacked.dart';
-import 'package:template_flutter_supabase/config/initSupabase.dart';
 import 'package:template_flutter_supabase/uicomponents/app_button.dart';
 import 'package:template_flutter_supabase/uicomponents/app_error_text.dart';
 import 'package:template_flutter_supabase/uicomponents/app_text_button.dart';
