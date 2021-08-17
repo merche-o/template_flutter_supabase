@@ -62,7 +62,7 @@ class ProfileView extends StatelessWidget {
                                     children: <Widget>[
                                       new InkWell(
                                         child: new CircleAvatar(
-                                          backgroundColor: Colors.red,
+                                          //  backgroundColor: Colors.lightGreen,
                                           radius: 25.0,
                                           child: new Icon(
                                             Icons.camera_alt,
@@ -373,7 +373,7 @@ class ProfileView extends StatelessWidget {
                   child: new ElevatedButton(
                 child: new Text("Save"),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green,
+                  //   primary: Colors.lightGreen,
                   textStyle: const TextStyle(color: Colors.white),
                   shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(20.0)),
@@ -414,7 +414,7 @@ class ProfileView extends StatelessWidget {
   Widget _getEditIcon({required ProfileViewModel model}) {
     return GestureDetector(
       child: new CircleAvatar(
-        backgroundColor: Colors.red,
+        // backgroundColor: Colors.lightGreen,
         radius: 14.0,
         child: new Icon(
           Icons.edit,
