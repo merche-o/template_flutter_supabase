@@ -13,6 +13,17 @@ class HomeView extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
+          actions: <Widget>[
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.notifications,
+                    size: 26.0,
+                  ),
+                )),
+          ],
         ),
         drawer: SideDrawer(),
         body: Center(
