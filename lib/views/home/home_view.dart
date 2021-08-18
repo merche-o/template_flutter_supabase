@@ -9,7 +9,12 @@ import 'package:template_flutter_supabase/views/home/home_viewmodel.dart';
 import 'package:template_flutter_supabase/views/searchpage/search_view.dart';
 
 class HomeView extends StatelessWidget {
-  final List<Widget> _body = [SearchView(), SearchView()];
+  final List<Widget> _body = [
+    SearchView(),
+    SearchView(),
+    SearchView(),
+    SearchView()
+  ];
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
@@ -19,7 +24,7 @@ class HomeView extends StatelessWidget {
           child: _body[model.bodyIndex],
         ),
         floatingActionButton: FloatingProfileButton(),
-        bottomNavigationBar: BottomBar(),
+        bottomNavigationBar: BottomBar(model.changeBody, model.bodyIndex),
       ),
       viewModelBuilder: () => HomeViewModel(),
     );

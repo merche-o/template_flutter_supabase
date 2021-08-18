@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/app/app.locator.dart';
 import 'package:template_flutter_supabase/app/app.router.dart';
@@ -10,6 +11,15 @@ import 'package:template_flutter_supabase/views/home/home_viewmodel.dart';
 class BottomBar extends StatelessWidget {
   final _navService = locator<NavigationService>();
   int _index = 2;
+  final _logger = Logger();
+
+  Function(int)? _onTap;
+
+  BottomBar(Function(int) onTap, int index) {
+    _onTap = onTap;
+    _index = index;
+  }
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<BottomBarViewModel>.reactive(
@@ -22,7 +32,8 @@ class BottomBar extends StatelessWidget {
                     }*/
                     ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.search, color: Colors.black),
+                  icon: Icon(Icons.search,
+                      color: _index == 1 ? Colors.blue : Colors.black),
                   label: "",
                   /*,
                     onPressed: () {
@@ -30,7 +41,9 @@ class BottomBar extends StatelessWidget {
                     }*/
                 ),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.home, color: Colors.black), label: ""
+                    icon: Icon(Icons.home,
+                        color: _index == 2 ? Colors.blue : Colors.black),
+                    label: ""
 
                     /* onPressed: () {
                       model.moveToHome();
@@ -39,17 +52,7 @@ class BottomBar extends StatelessWidget {
                 BottomNavigationBarItem(
                     icon: Icon(Icons.shopping_basket_outlined), label: ""),
               ],
-              onTap: (index) {
-                _index = index;
-                if (index == 0) {
-                  Scaffold.of(context).openDrawer();
-                } else {
-                  ((((Scaffold.of(context) as HomeView).build(context)
-                              as ViewModelBuilder<HomeViewModel>)
-                          .viewModelBuilder) as HomeViewModel)
-                      .changeBody(index);
-                }
-              },
+              onTap: _onTap,
               selectedItemColor: Colors.blue,
             ),
         viewModelBuilder: () => BottomBarViewModel());
