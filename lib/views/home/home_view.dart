@@ -1,20 +1,12 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:template_flutter_supabase/uicomponents/bottom_bar.dart';
 import 'package:template_flutter_supabase/uicomponents/floating_profile_button.dart';
+import 'package:template_flutter_supabase/uicomponents/search_bar.dart';
 import 'package:template_flutter_supabase/uicomponents/side_drawer.dart';
 import 'package:template_flutter_supabase/views/home/home_viewmodel.dart';
-import 'package:template_flutter_supabase/views/searchpage/search_view.dart';
 
 class HomeView extends StatelessWidget {
-  final List<Widget> _body = [
-    SearchView(),
-    SearchView(),
-    SearchView(),
-    SearchView()
-  ];
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
@@ -35,8 +27,9 @@ class HomeView extends StatelessWidget {
           ],
         ),
         drawer: SideDrawer(),
-        body: Center(
-          child: _body[model.bodyIndex],
+        body: Stack(
+          fit: StackFit.expand,
+          children: [model.body[model.bodyIndex], buildFloatingSearchBar()],
         ),
         floatingActionButton: FloatingProfileButton(),
         bottomNavigationBar: BottomBar(model.changeBody, model.bodyIndex),

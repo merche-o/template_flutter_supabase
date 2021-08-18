@@ -40,6 +40,7 @@ dependencies:
   shared_preferences: ^2.0.6
   supabase: ^0.1.0
   image_picker: ^0.8.3+2
+  material_floating_search_bar: ^0.3.4
 
 
 dev_dependencies:

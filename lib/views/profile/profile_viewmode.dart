@@ -25,7 +25,7 @@ class ProfileViewModel extends BaseViewModel {
   final _userSerivce = locator<UserService>();
   final _logger = Logger();
   AppUser? get user => _authService.user;
-  AppUser? _copyUser = null;
+  AppUser? _copyUser;
 
   ImageProvider? _image = AssetImage('assets/images/noavatar.jpeg');
   ImageProvider? get image => _image;

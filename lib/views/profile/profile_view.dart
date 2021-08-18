@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:stacked/stacked.dart';
 import 'package:template_flutter_supabase/views/profile/profile_viewmode.dart';
-import 'package:image_picker/image_picker.dart';
 
 //TODO : either change the class to statefull or use StackedFormData to prevent unecessary recall
 class ProfileView extends StatelessWidget {
   final _logger = Logger();
-  final _picker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
