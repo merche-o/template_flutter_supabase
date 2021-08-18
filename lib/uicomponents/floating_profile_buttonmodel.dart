@@ -6,6 +6,7 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:stacked/stacked.dart';
 
 import 'package:template_flutter_supabase/app/app.locator.dart';
+import 'package:template_flutter_supabase/app/app.router.dart';
 import 'package:template_flutter_supabase/config/initSupabase.dart';
 import 'package:template_flutter_supabase/services/authenticationService.dart';
 import 'package:template_flutter_supabase/services/localStorageService.dart';
@@ -46,6 +47,6 @@ class FloatingProfileButtonModel extends BaseViewModel {
   }
 
   void moveToProfile() {
-    // _navService.clearStackAndShow(Routes.profileView);
+    _navService.navigateTo(Routes.profileView);
   }
 }

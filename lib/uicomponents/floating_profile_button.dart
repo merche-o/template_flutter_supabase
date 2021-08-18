@@ -15,7 +15,9 @@ class FloatingProfileButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<FloatingProfileButtonModel>.reactive(
         builder: (context, model, child) => FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              model.moveToProfile();
+            },
             child: CircleAvatar(
               radius: 25,
               backgroundImage: model.image,

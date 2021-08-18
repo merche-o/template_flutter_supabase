@@ -19,6 +19,21 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          actions: <Widget>[
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.notifications,
+                    size: 26.0,
+                  ),
+                )),
+          ],
+        ),
         drawer: SideDrawer(),
         body: Center(
           child: _body[model.bodyIndex],

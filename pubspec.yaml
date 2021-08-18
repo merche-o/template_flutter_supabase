@@ -39,6 +39,7 @@ dependencies:
   logger: ^1.0.0
   shared_preferences: ^2.0.6
   supabase: ^0.1.0
+  image_picker: ^0.8.3+2
 
 
 dev_dependencies:
