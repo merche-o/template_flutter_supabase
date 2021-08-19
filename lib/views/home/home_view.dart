@@ -29,7 +29,12 @@ class HomeView extends StatelessWidget {
         drawer: SideDrawer(),
         body: Stack(
           fit: StackFit.expand,
-          children: [model.body[model.bodyIndex], buildFloatingSearchBar()],
+          children: [
+            model.body[model.bodyIndex],
+            model.bodyIndex == 2
+                ? FloatingProfileButton()
+                : buildFloatingSearchBar()
+          ],
         ),
         floatingActionButton: FloatingProfileButton(),
         bottomNavigationBar: BottomBar(model.changeBody, model.bodyIndex),

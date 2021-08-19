@@ -33,7 +33,7 @@ Widget buildFloatingSearchBar() {
         borderRadius: BorderRadius.circular(8),
         child: Material(
           color: Colors.white,
-          elevation: 4.0,
+          elevation: 0.0,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: Colors.accents.map((color) {
