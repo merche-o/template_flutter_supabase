@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:template_flutter_supabase/model/product/product.dart';
 import 'package:template_flutter_supabase/utlis/helper.dart';
@@ -26,12 +28,13 @@ class ItemCard extends StatelessWidget {
               // height: 180,
               // width: 160,
               decoration: BoxDecoration(
-                color: product!.color,
+                color:
+                    Colors.primaries[Random().nextInt(Colors.primaries.length)],
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Hero(
                 tag: "${product!.id!}",
-                child: Image.asset(product!.image!),
+                child: Image.asset("assets/images/" + product!.image!),
               ),
             ),
           ),

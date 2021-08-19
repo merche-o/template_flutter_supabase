@@ -20,7 +20,7 @@ class ProductListView extends StatelessWidget {
           child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
               child: GridView.builder(
-                itemCount: products.length,
+                itemCount: model.data?.length ?? 0,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: kDefaultPaddin,
@@ -28,7 +28,7 @@ class ProductListView extends StatelessWidget {
                   childAspectRatio: 0.75,
                 ),
                 itemBuilder: (context, index) => ItemCard(
-                    product: products[index],
+                    product: model.data?[index] as Product,
                     press:
                         () {} /*Navigator.push(
                           context,
