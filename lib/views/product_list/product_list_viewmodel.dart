@@ -1,5 +1,7 @@
 import 'package:logger/logger.dart';
+import 'package:postgrest/postgrest.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/app/app.locator.dart';
 import 'package:template_flutter_supabase/model/product/product.dart';
 import 'package:template_flutter_supabase/services/productService.dart';
@@ -22,13 +24,16 @@ class ProductListViewModel extends FutureViewModel<List<Product>?> {
   @override
   Future<List<Product>?> futureToRun() async {
     // TODO: implement futureToRun
-    return await _fetchProducts();
+    return await _fetchProducts(filter: "");
   }
 
   Future<List<Product>?> _fetchProducts({filter: String}) async {
-    final response = await _productService.all();
-    _logger.i(response.toJson());
-
+    final PostgrestResponse response;
+    if (filter == "") {
+      response = await _productService.all();
+    } else {
+      response = await _productService.filtered(filter: filter);
+    }
     if (response.error != null) {
       _logger.e(response.error!.message);
       return null;
@@ -40,6 +45,11 @@ class ProductListViewModel extends FutureViewModel<List<Product>?> {
 
   Future<void> onRefreshList() async {
     await futureToRun();
+    notifyListeners();
+  }
+
+  Future<void> onSearchOnList({filter: String}) async {
+    await _fetchProducts(filter: filter);
     notifyListeners();
   }
 }
