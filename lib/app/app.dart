@@ -1,6 +1,7 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/services/authenticationService.dart';
+import 'package:template_flutter_supabase/services/categoryService.dart';
 import 'package:template_flutter_supabase/services/localStorageService.dart';
 import 'package:template_flutter_supabase/services/productService.dart';
 import 'package:template_flutter_supabase/services/userService.dart';
@@ -29,6 +30,7 @@ import 'package:template_flutter_supabase/views/startup/startup_view.dart';
   LazySingleton(classType: LocalStorageService),
   LazySingleton(classType: UserService),
   LazySingleton(classType: ProductService),
+  LazySingleton(classType: CategoryService),
 ])
 class App {
   /** This class has no puporse besides housing the annotation that generates the required functionality **/

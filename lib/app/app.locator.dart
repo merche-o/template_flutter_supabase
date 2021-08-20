@@ -11,6 +11,7 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../services/authenticationService.dart';
+import '../services/categoryService.dart';
 import '../services/localStorageService.dart';
 import '../services/productService.dart';
 import '../services/userService.dart';
@@ -31,4 +32,5 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => LocalStorageService());
   locator.registerLazySingleton(() => UserService());
   locator.registerLazySingleton(() => ProductService());
+  locator.registerLazySingleton(() => CategoryService());
 }

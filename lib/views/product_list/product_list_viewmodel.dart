@@ -1,7 +1,6 @@
 import 'package:logger/logger.dart';
 import 'package:postgrest/postgrest.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/app/app.locator.dart';
 import 'package:template_flutter_supabase/model/product/product.dart';
 import 'package:template_flutter_supabase/services/productService.dart';
@@ -40,7 +39,9 @@ class ProductListViewModel extends FutureViewModel<List<Product>?> {
     }
 
     List<dynamic> data = response.data;
-    return data.map((e) => Product.fromJson(e)).toList();
+    //List<dynamic> productList = data[0];
+
+    return data.map((e) => Product.fromJson(e["product"])).toList();
   }
 
   Future<void> onRefreshList() async {
