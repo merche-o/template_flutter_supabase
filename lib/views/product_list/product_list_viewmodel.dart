@@ -7,7 +7,6 @@ import 'package:template_flutter_supabase/app/app.router.dart';
 import 'package:template_flutter_supabase/model/product/product.dart';
 import 'package:template_flutter_supabase/services/categoryService.dart';
 import 'package:template_flutter_supabase/services/productService.dart';
-import 'package:template_flutter_supabase/views/product_list/product_details_view.dart';
 
 class ProductListViewModel extends BaseViewModel {
   final _productService = locator<ProductService>();

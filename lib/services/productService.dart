@@ -38,4 +38,17 @@ class ProductService extends SupabaseService {
     _logger.i(response.toJson());
     return response;
   }
+
+  @override
+  Future<PostgrestResponse> filtered({filter = String}) async {
+    _logger.i(tableName());
+    _logger.i(filter);
+    final response = await supabase
+        .from(tableName())
+        .select("product:product_id(*)")
+        .textSearch("product.title", filter)
+        .execute();
+    _logger.i(response.toJson());
+    return response;
+  }
 }
