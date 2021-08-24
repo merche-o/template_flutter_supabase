@@ -10,8 +10,10 @@ class CategoryHeaderViewModel extends FutureViewModel<List<Category>?> {
   final _categoryService = locator<CategoryService>();
 
   final _logger = Logger();
-
-  CategoryHeaderViewModel() {
+  int _selectedIndex = 0;
+  int get selectedIndex => _selectedIndex;
+  Function callback;
+  CategoryHeaderViewModel(this.callback) {
     onRefreshList();
   }
 
@@ -38,15 +40,21 @@ class CategoryHeaderViewModel extends FutureViewModel<List<Category>?> {
     }
 
     List<dynamic> data = response.data;
-    return data.map((e) => Category.fromJson(e)).toList();
+    List<Category> listResponse =
+        data.map((e) => Category.fromJson(e)).toList();
+    _categoryService.currentCategory = listResponse[_selectedIndex].id;
+    return listResponse;
   }
 
   void setCategoryId(int selection) {
+    _selectedIndex = selection;
     _categoryService.currentCategory = data?[selection].id ?? "";
+    this.callback();
   }
 
   Future<void> onRefreshList() async {
     await futureToRun();
     notifyListeners();
+    this.callback();
   }
 }

@@ -6,7 +6,7 @@ import 'package:template_flutter_supabase/utlis/helper.dart';
 
 class ItemCard extends StatelessWidget {
   final Product? product;
-  final Function? press;
+  final void Function()? press;
   const ItemCard({
     Key? key,
     this.product,
@@ -16,7 +16,7 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: press,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

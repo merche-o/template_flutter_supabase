@@ -1,37 +1,40 @@
 import 'package:logger/logger.dart';
 import 'package:postgrest/postgrest.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/app/app.locator.dart';
+import 'package:template_flutter_supabase/app/app.router.dart';
 import 'package:template_flutter_supabase/model/product/product.dart';
+import 'package:template_flutter_supabase/services/categoryService.dart';
 import 'package:template_flutter_supabase/services/productService.dart';
+import 'package:template_flutter_supabase/views/product_list/product_details_view.dart';
 
-class ProductListViewModel extends FutureViewModel<List<Product>?> {
+class ProductListViewModel extends BaseViewModel {
   final _productService = locator<ProductService>();
+  final _categoryService = locator<CategoryService>();
+  final _navService = locator<NavigationService>();
+
   String _title = 'Product List View';
   String get title => _title;
   final _logger = Logger();
+  final _filter = "";
+  List<Product?> _data = [];
+  List<Product?>? get products => _data;
 
   ProductListViewModel() {
     onRefreshList();
   }
-  bool get hasProducts {
-    if (data == null) return false;
 
-    return data!.length > 0;
-  }
+  Future<List<Product>?> futureToRun() => _fetchProducts();
+  // TODO: implement futureToRun
 
-  @override
-  Future<List<Product>?> futureToRun() async {
-    // TODO: implement futureToRun
-    return await _fetchProducts(filter: "");
-  }
-
-  Future<List<Product>?> _fetchProducts({filter: String}) async {
+  Future<List<Product>?> _fetchProducts() async {
     final PostgrestResponse response;
-    if (filter == "") {
-      response = await _productService.all();
+    if (_filter == "") {
+      response = await _productService.byCategory(
+          categoryid: _categoryService.currentCategory);
     } else {
-      response = await _productService.filtered(filter: filter);
+      response = await _productService.filtered(filter: _filter);
     }
     if (response.error != null) {
       _logger.e(response.error!.message);
@@ -39,18 +42,23 @@ class ProductListViewModel extends FutureViewModel<List<Product>?> {
     }
 
     List<dynamic> data = response.data;
-    //List<dynamic> productList = data[0];
-
+    _data = data.map((e) => Product.fromJson(e["product"])).toList();
     return data.map((e) => Product.fromJson(e["product"])).toList();
   }
 
   Future<void> onRefreshList() async {
-    await futureToRun();
+    await _fetchProducts();
+    //_logger.i(data);
     notifyListeners();
   }
 
   Future<void> onSearchOnList({filter: String}) async {
-    await _fetchProducts(filter: filter);
+    await _fetchProducts();
     notifyListeners();
+  }
+
+  void moveToDetailView(Product product) async {
+    _navService.navigateTo(Routes.detailsScreen, arguments: {product: product});
+    //   await _navService.navigateToView(DetailsScreen(product));
   }
 }

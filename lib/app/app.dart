@@ -7,6 +7,7 @@ import 'package:template_flutter_supabase/services/productService.dart';
 import 'package:template_flutter_supabase/services/userService.dart';
 import 'package:template_flutter_supabase/views/home/home_view.dart';
 import 'package:template_flutter_supabase/views/login/login_view.dart';
+import 'package:template_flutter_supabase/views/product_list/product_details_view.dart';
 import 'package:template_flutter_supabase/views/profile/profile_view.dart';
 import 'package:template_flutter_supabase/views/searchpage/search_view.dart';
 import 'package:template_flutter_supabase/views/signup/signup_view.dart';
@@ -18,7 +19,8 @@ import 'package:template_flutter_supabase/views/startup/startup_view.dart';
   MaterialRoute(page: LoginView),
   MaterialRoute(page: SignupView),
   MaterialRoute(page: SearchView),
-  MaterialRoute(page: ProfileView)
+  MaterialRoute(page: ProfileView),
+  MaterialRoute(page: DetailsScreen)
   // CupertinoRoute(page: BottomNavExample),
   // CustomRouter(page: StreamCounterView),
 ], dependencies: [

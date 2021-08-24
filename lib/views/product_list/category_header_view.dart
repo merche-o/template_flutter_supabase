@@ -8,6 +8,8 @@ import 'package:template_flutter_supabase/views/product_list/category_header_vie
 // We need satefull widget for our categories
 
 class Categories extends StatefulWidget {
+  Function callback;
+  Categories(this.callback);
   @override
   _CategoriesState createState() => _CategoriesState();
 }
@@ -17,7 +19,6 @@ class _CategoriesState extends State<Categories> {
 
   // ["Hand bag", "Jewellery", "Footwear", "Dresses"];
   // By default our first item will be selected
-  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<CategoryHeaderViewModel>.reactive(
@@ -32,14 +33,14 @@ class _CategoriesState extends State<Categories> {
                 ),
               ),
             ),
-        viewModelBuilder: () => CategoryHeaderViewModel());
+        viewModelBuilder: () => CategoryHeaderViewModel(this.widget.callback));
   }
 
   Widget buildCategory(int index, CategoryHeaderViewModel model) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          selectedIndex = index;
+          model.setCategoryId(index);
         });
       },
       child: Padding(
@@ -51,14 +52,17 @@ class _CategoriesState extends State<Categories> {
               model.data?[index].name ?? "",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: selectedIndex == index ? kTextColor : kTextLightColor,
+                color:
+                    model.selectedIndex == index ? kTextColor : kTextLightColor,
               ),
             ),
             Container(
               margin: EdgeInsets.only(top: kDefaultPaddin / 4), //top padding 5
               height: 2,
               width: 30,
-              color: selectedIndex == index ? Colors.black : Colors.transparent,
+              color: model.selectedIndex == index
+                  ? Colors.black
+                  : Colors.transparent,
             )
           ],
         ),

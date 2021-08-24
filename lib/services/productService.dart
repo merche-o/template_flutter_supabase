@@ -24,4 +24,18 @@ class ProductService extends SupabaseService {
     _logger.i(response.toJson());
     return response;
   }
+
+  Future<PostgrestResponse> byCategory({categoryid: String}) async {
+    _logger.i(tableName());
+    if (categoryid == "") {
+      return this.all();
+    }
+    final response = await supabase
+        .from(tableName())
+        .select("product:product_id(*)")
+        .filter("category_id", "eq", categoryid)
+        .execute();
+    _logger.i(response.toJson());
+    return response;
+  }
 }

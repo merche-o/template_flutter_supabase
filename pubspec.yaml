@@ -41,6 +41,7 @@ dependencies:
   supabase: ^0.1.0
   image_picker: ^0.8.3+2
   material_floating_search_bar: ^0.3.4
+  flutter_svg: ^0.22.0
 
 
 dev_dependencies:
@@ -61,6 +62,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - assets/images/
+     - assets/icons/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
