@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:stacked/stacked.dart';
 import 'package:template_flutter_supabase/views/basket/basket_view.dart';
 import 'package:template_flutter_supabase/views/product_list/produclt_list_view.dart';
@@ -10,6 +11,8 @@ class HomeViewModel extends BaseViewModel {
   String get title => _title;
   int _bodyIndex = 1;
   final _logger = Logger();
+
+  HomeViewModel();
 
   int get bodyIndex => _bodyIndex;
   final List<Widget> body = [
@@ -22,6 +25,7 @@ class HomeViewModel extends BaseViewModel {
     _logger.i(_bodyIndex);
 
     _bodyIndex = index;
+
     notifyListeners();
   }
 }
