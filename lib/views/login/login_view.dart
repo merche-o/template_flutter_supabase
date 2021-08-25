@@ -32,6 +32,7 @@ class LoginView extends ViewModelBuilderWidget<LoginViewModel> with $LoginView {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Sign In"),
+          automaticallyImplyLeading: false,
         ),
         body: SingleChildScrollView(
           child: ConstrainedBox(

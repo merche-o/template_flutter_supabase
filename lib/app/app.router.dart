@@ -13,6 +13,7 @@ import '../model/product/product.dart';
 import '../views/basket/basket_view.dart';
 import '../views/home/home_view.dart';
 import '../views/login/login_view.dart';
+import '../views/onboarding/onboarding_view.dart';
 import '../views/product_list/product_details_view.dart';
 import '../views/profile/profile_view.dart';
 import '../views/searchpage/search_view.dart';
@@ -23,6 +24,7 @@ class Routes {
   static const String startupView = '/';
   static const String homeView = '/home-view';
   static const String loginView = '/login-view';
+  static const String onBoardingView = '/on-boarding-view';
   static const String signupView = '/signup-view';
   static const String searchView = '/search-view';
   static const String profileView = '/profile-view';
@@ -32,6 +34,7 @@ class Routes {
     startupView,
     homeView,
     loginView,
+    onBoardingView,
     signupView,
     searchView,
     profileView,
@@ -47,6 +50,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.startupView, page: StartupView),
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.loginView, page: LoginView),
+    RouteDef(Routes.onBoardingView, page: OnBoardingView),
     RouteDef(Routes.signupView, page: SignupView),
     RouteDef(Routes.searchView, page: SearchView),
     RouteDef(Routes.profileView, page: ProfileView),
@@ -74,6 +78,12 @@ class StackedRouter extends RouterBase {
       );
       return MaterialPageRoute<dynamic>(
         builder: (context) => LoginView(key: args.key),
+        settings: data,
+      );
+    },
+    OnBoardingView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => OnBoardingView(),
         settings: data,
       );
     },

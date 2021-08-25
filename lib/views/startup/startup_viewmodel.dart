@@ -4,6 +4,7 @@ import 'package:template_flutter_supabase/app/app.locator.dart';
 import 'package:template_flutter_supabase/services/authenticationService.dart';
 import 'package:template_flutter_supabase/views/home/home_view.dart';
 import 'package:template_flutter_supabase/views/login/login_view.dart';
+import 'package:template_flutter_supabase/views/onboarding/onboarding_view.dart';
 
 class StartupViewModel extends BaseViewModel {
   final _authService = locator<AuthenticationService>();
@@ -21,7 +22,7 @@ class StartupViewModel extends BaseViewModel {
       );
     } else {
       return await _navigationService.replaceWithTransition(
-        LoginView(),
+        OnBoardingView(),
         transition: 'upToDown',
       );
     }
