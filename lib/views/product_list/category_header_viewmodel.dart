@@ -3,7 +3,6 @@ import 'package:logger/logger.dart';
 import 'package:postgrest/postgrest.dart';
 import 'package:stacked/stacked.dart';
 import 'package:template_flutter_supabase/app/app.locator.dart';
-import 'package:template_flutter_supabase/model/product/product.dart';
 import 'package:template_flutter_supabase/services/categoryService.dart';
 
 class CategoryHeaderViewModel extends FutureViewModel<List<Category>?> {

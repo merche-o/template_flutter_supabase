@@ -25,7 +25,7 @@ class ProductTitleWithImage extends StatelessWidget {
                 .headline4!
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          // SizedBox(height: kDefaultPaddin),
+          SizedBox(height: getProportionateScreenHeight(kDefaultPaddin)),
           Row(
             children: <Widget>[
               RichText(
@@ -41,15 +41,23 @@ class ProductTitleWithImage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(width: kDefaultPaddin * 2),
+              SizedBox(width: getProportionateScreenWidth(kDefaultPaddin)),
               Expanded(
-                child: Hero(
-                  tag: "${product.id}",
-                  child: Image.asset(
-                    "assets/images/" + product.image!,
-                    fit: BoxFit.fill,
-                  ),
-                ),
+                child: Container(
+                    padding: EdgeInsets.all(kDefaultPaddin),
+                    width: getProportionateScreenHeight(250),
+                    height: getProportionateScreenHeight(250),
+
+                    // decoration: BoxDecoration(
+                    //   color: Colors.white,
+                    //  borderRadius: BorderRadius.circular(10)),
+                    child: Hero(
+                      tag: "${product.id}",
+                      child: Image.asset(
+                        "assets/images/" + product.image!,
+                        fit: BoxFit.contain,
+                      ),
+                    )),
               )
             ],
           )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:template_flutter_supabase/utlis/helper.dart';
 import 'package:template_flutter_supabase/views/startup/startup_viewmodel.dart';
 
 class StartupView extends ViewModelBuilderWidget<StartupViewModel> {
@@ -14,6 +15,8 @@ class StartupView extends ViewModelBuilderWidget<StartupViewModel> {
   Widget builder(
       BuildContext context, StartupViewModel viewModel, Widget? child) {
     // TODO: implement builder
+    SizeConfig().init(context);
+
     return ViewModelBuilder<StartupViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         body: Center(

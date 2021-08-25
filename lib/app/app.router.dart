@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../model/product/product.dart';
+import '../views/basket/basket_view.dart';
 import '../views/home/home_view.dart';
 import '../views/login/login_view.dart';
 import '../views/product_list/product_details_view.dart';
@@ -26,6 +27,7 @@ class Routes {
   static const String searchView = '/search-view';
   static const String profileView = '/profile-view';
   static const String detailsScreen = '/details-screen';
+  static const String basketView = '/basket-view';
   static const all = <String>{
     startupView,
     homeView,
@@ -34,6 +36,7 @@ class Routes {
     searchView,
     profileView,
     detailsScreen,
+    basketView,
   };
 }
 
@@ -48,6 +51,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.searchView, page: SearchView),
     RouteDef(Routes.profileView, page: ProfileView),
     RouteDef(Routes.detailsScreen, page: DetailsScreen),
+    RouteDef(Routes.basketView, page: BasketView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -98,6 +102,12 @@ class StackedRouter extends RouterBase {
       var args = data.getArgs<DetailsScreenArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
         builder: (context) => DetailsScreen(args.product),
+        settings: data,
+      );
+    },
+    BasketView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => BasketView(),
         settings: data,
       );
     },

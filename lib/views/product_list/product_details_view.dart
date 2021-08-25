@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:template_flutter_supabase/model/product/product.dart';
-import 'package:template_flutter_supabase/uicomponents/add_to_cart.dart';
+import 'package:template_flutter_supabase/uicomponents/details_view_components/add_to_cart.dart';
 import 'package:template_flutter_supabase/uicomponents/details_view_components/color_and_size.dart';
 import 'package:template_flutter_supabase/uicomponents/details_view_components/counter_with_fav_btn.dart';
 import 'package:template_flutter_supabase/uicomponents/details_view_components/description.dart';

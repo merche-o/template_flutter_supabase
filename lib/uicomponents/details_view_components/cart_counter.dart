@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:template_flutter_supabase/app/app.locator.dart';
+import 'package:template_flutter_supabase/services/basketService.dart';
 import 'package:template_flutter_supabase/utlis/helper.dart';
 
 class CartCounter extends StatefulWidget {
@@ -7,9 +9,12 @@ class CartCounter extends StatefulWidget {
 }
 
 class _CartCounterState extends State<CartCounter> {
+  final _basketService = locator<BasketService>();
+
   int numOfItems = 1;
   @override
   Widget build(BuildContext context) {
+    _basketService.productQ = numOfItems;
     return Row(
       children: <Widget>[
         buildOutlineButton(
@@ -18,6 +23,7 @@ class _CartCounterState extends State<CartCounter> {
             if (numOfItems > 1) {
               setState(() {
                 numOfItems--;
+                _basketService.productQ = numOfItems;
               });
             }
           },
@@ -35,6 +41,7 @@ class _CartCounterState extends State<CartCounter> {
             press: () {
               setState(() {
                 numOfItems++;
+                _basketService.productQ = numOfItems;
               });
             }),
       ],
