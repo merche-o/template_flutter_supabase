@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/app/app.locator.dart';
+import 'package:template_flutter_supabase/app/app.router.dart';
 import 'package:template_flutter_supabase/services/basketService.dart';
 import 'package:template_flutter_supabase/uicomponents/app_button.dart';
 import 'package:template_flutter_supabase/utlis/helper.dart';
@@ -8,6 +10,8 @@ import 'package:stacked/stacked.dart';
 
 class CheckoutCard extends StatelessWidget {
   BasketViewModel model;
+  final _navService = locator<NavigationService>();
+
   CheckoutCard(this.model);
   @override
   Widget build(BuildContext context) {
@@ -71,7 +75,9 @@ class CheckoutCard extends StatelessWidget {
                     width: getProportionateScreenWidth(190),
                     child: AppButton(
                       label: "Check out",
-                      onPressed: () {},
+                      onPressed: () {
+                        _navService.navigateTo(Routes.paymentView);
+                      },
                     ),
                   ),
                 ],

@@ -6,11 +6,13 @@ import 'package:template_flutter_supabase/services/basketService.dart';
 import 'package:template_flutter_supabase/services/categoryService.dart';
 import 'package:template_flutter_supabase/services/localStorageService.dart';
 import 'package:template_flutter_supabase/services/productService.dart';
+import 'package:template_flutter_supabase/config/initStripe.dart';
 import 'package:template_flutter_supabase/services/userService.dart';
 import 'package:template_flutter_supabase/views/basket/basket_view.dart';
 import 'package:template_flutter_supabase/views/home/home_view.dart';
 import 'package:template_flutter_supabase/views/login/login_view.dart';
 import 'package:template_flutter_supabase/views/onboarding/onboarding_view.dart';
+import 'package:template_flutter_supabase/views/payment/payment_view.dart';
 import 'package:template_flutter_supabase/views/product_list/product_details_view.dart';
 import 'package:template_flutter_supabase/views/profile/profile_view.dart';
 import 'package:template_flutter_supabase/views/searchpage/search_view.dart';
@@ -26,7 +28,9 @@ import 'package:template_flutter_supabase/views/startup/startup_view.dart';
   MaterialRoute(page: SearchView),
   MaterialRoute(page: ProfileView),
   MaterialRoute(page: DetailsScreen),
-  MaterialRoute(page: BasketView)
+  MaterialRoute(page: BasketView),
+  MaterialRoute(page: PaymentView),
+
   // CupertinoRoute(page: BottomNavExample),
   // CustomRouter(page: StreamCounterView),
 ], dependencies: [
@@ -39,7 +43,7 @@ import 'package:template_flutter_supabase/views/startup/startup_view.dart';
   LazySingleton(classType: UserService),
   LazySingleton(classType: ProductService),
   LazySingleton(classType: CategoryService),
-  LazySingleton(classType: BasketService)
+  LazySingleton(classType: BasketService),
 ])
 class App {
   /** This class has no puporse besides housing the annotation that generates the required functionality **/

@@ -1,6 +1,7 @@
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:template_flutter_supabase/app/app.locator.dart';
+import 'package:template_flutter_supabase/config/initStripe.dart';
 import 'package:template_flutter_supabase/services/authenticationService.dart';
 import 'package:template_flutter_supabase/views/home/home_view.dart';
 import 'package:template_flutter_supabase/views/login/login_view.dart';
@@ -14,7 +15,7 @@ class StartupViewModel extends BaseViewModel {
     await Future.delayed(Duration(seconds: 1));
 
     await _authService.initialize();
-
+    setupStripe();
     if (_authService.user != null) {
       return await _navigationService.replaceWithTransition(
         HomeView(),

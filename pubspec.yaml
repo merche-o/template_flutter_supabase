@@ -43,6 +43,9 @@ dependencies:
   material_floating_search_bar: ^0.3.4
   flutter_svg: ^0.22.0
   introduction_screen: ^2.1.0
+  flutter_credit_card: ^2.0.0
+  http: ^0.13.3
+  flutter_stripe: ^1.2.0
 
 
 dev_dependencies:

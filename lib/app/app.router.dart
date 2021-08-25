@@ -14,6 +14,7 @@ import '../views/basket/basket_view.dart';
 import '../views/home/home_view.dart';
 import '../views/login/login_view.dart';
 import '../views/onboarding/onboarding_view.dart';
+import '../views/payment/payment_view.dart';
 import '../views/product_list/product_details_view.dart';
 import '../views/profile/profile_view.dart';
 import '../views/searchpage/search_view.dart';
@@ -30,6 +31,7 @@ class Routes {
   static const String profileView = '/profile-view';
   static const String detailsScreen = '/details-screen';
   static const String basketView = '/basket-view';
+  static const String paymentView = '/payment-view';
   static const all = <String>{
     startupView,
     homeView,
@@ -40,6 +42,7 @@ class Routes {
     profileView,
     detailsScreen,
     basketView,
+    paymentView,
   };
 }
 
@@ -56,6 +59,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.profileView, page: ProfileView),
     RouteDef(Routes.detailsScreen, page: DetailsScreen),
     RouteDef(Routes.basketView, page: BasketView),
+    RouteDef(Routes.paymentView, page: PaymentView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -118,6 +122,12 @@ class StackedRouter extends RouterBase {
     BasketView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => BasketView(),
+        settings: data,
+      );
+    },
+    PaymentView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => PaymentView(),
         settings: data,
       );
     },
