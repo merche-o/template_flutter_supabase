@@ -43,7 +43,7 @@ import 'package:template_flutter_supabase/views/startup/startup_view.dart';
   LazySingleton(classType: UserService),
   LazySingleton(classType: ProductService),
   LazySingleton(classType: CategoryService),
-  LazySingleton(classType: BasketService),
+  LazySingleton(classType: BasketService)
 ])
 class App {
   /** This class has no puporse besides housing the annotation that generates the required functionality **/
