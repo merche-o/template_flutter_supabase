@@ -28,29 +28,32 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  stacked_generator: ^0.5.1
-  analyzer: ^1.5.0
+  stacked_generator: ^0.6.2
+  analyzer: ^3.4.1
   build_runner: ^2.1.0
   stacked_services: ^0.8.13
-  json_serializable: ^4.1.4
-  freezed: ^0.14.2
+  json_serializable: ^6.2.0
+  freezed: ^2.0.3+1
   postgrest: ^0.1.4
-  supabase_flutter: ^0.1.0
+  supabase_flutter: ^0.3.1
   logger: ^1.0.0
   shared_preferences: ^2.0.6
-  supabase: ^0.1.0
+  supabase: ^0.3.4
   image_picker: ^0.8.3+2
   material_floating_search_bar: ^0.3.4
-  flutter_svg: ^0.22.0
-  introduction_screen: ^2.1.0
-  flutter_credit_card: ^2.0.0
+  flutter_svg: ^1.0.3
+  introduction_screen: ^3.0.2
+  flutter_credit_card: ^3.0.0
   http: ^0.13.3
-  flutter_stripe: ^1.2.0
+  flutter_stripe: ^3.0.0
 
 
 dev_dependencies:
+
   flutter_test:
     sdk: flutter
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

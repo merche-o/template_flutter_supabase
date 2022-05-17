@@ -49,9 +49,13 @@ mixin $SignupView on StatelessWidget {
     // The dispose function for a TextEditingController sets all listeners to null
 
     first_nameController.dispose();
+    first_nameFocusNode.dispose();
     last_nameController.dispose();
+    last_nameFocusNode.dispose();
     emailController.dispose();
+    emailFocusNode.dispose();
     passwordController.dispose();
+    passwordFocusNode.dispose();
   }
 }
 

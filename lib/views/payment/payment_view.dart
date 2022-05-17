@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-
+/*
 class PaymentView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,4 +25,4 @@ class PaymentView extends StatelessWidget {
       ),
     );
   }
-}
+}*/

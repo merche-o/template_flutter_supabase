@@ -39,7 +39,7 @@ class _OnBoardingPageState extends State<OnBoardingView> {
     const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
       bodyTextStyle: bodyStyle,
-      descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+      // descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       pageColor: Colors.white,
       imagePadding: EdgeInsets.zero,
     );
@@ -145,7 +145,7 @@ class _OnBoardingPageState extends State<OnBoardingView> {
       onDone: () => _onIntroEnd(context),
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: true,
-      skipFlex: 0,
+      //  skipFlex: 0,
       nextFlex: 0,
       //rtl: true, // Display as right-to-left
       skip: const Text('Skip'),

@@ -76,7 +76,7 @@ class CheckoutCard extends StatelessWidget {
                     child: AppButton(
                       label: "Check out",
                       onPressed: () {
-                        _navService.navigateTo(Routes.paymentView);
+                       // _navService.navigateTo(Routes.paymentView);
                       },
                     ),
                   ),

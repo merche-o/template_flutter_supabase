@@ -8,13 +8,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked/stacked_annotations.dart';
 
 import '../model/product/product.dart';
 import '../views/basket/basket_view.dart';
 import '../views/home/home_view.dart';
 import '../views/login/login_view.dart';
 import '../views/onboarding/onboarding_view.dart';
-import '../views/payment/payment_view.dart';
 import '../views/product_list/product_details_view.dart';
 import '../views/profile/profile_view.dart';
 import '../views/searchpage/search_view.dart';
@@ -31,7 +31,6 @@ class Routes {
   static const String profileView = '/profile-view';
   static const String detailsScreen = '/details-screen';
   static const String basketView = '/basket-view';
-  static const String paymentView = '/payment-view';
   static const all = <String>{
     startupView,
     homeView,
@@ -42,7 +41,6 @@ class Routes {
     profileView,
     detailsScreen,
     basketView,
-    paymentView,
   };
 }
 
@@ -59,19 +57,18 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.profileView, page: ProfileView),
     RouteDef(Routes.detailsScreen, page: DetailsScreen),
     RouteDef(Routes.basketView, page: BasketView),
-    RouteDef(Routes.paymentView, page: PaymentView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, StackedRouteFactory>{
     StartupView: (data) {
-      return MaterialPageRoute<dynamic>(
+      return MaterialPageRoute<MaterialRoute<dynamic>>(
         builder: (context) => StartupView(),
         settings: data,
       );
     },
     HomeView: (data) {
-      return MaterialPageRoute<dynamic>(
+      return MaterialPageRoute<MaterialRoute<dynamic>>(
         builder: (context) => HomeView(),
         settings: data,
       );
@@ -80,13 +77,13 @@ class StackedRouter extends RouterBase {
       var args = data.getArgs<LoginViewArguments>(
         orElse: () => LoginViewArguments(),
       );
-      return MaterialPageRoute<dynamic>(
+      return MaterialPageRoute<MaterialRoute<dynamic>>(
         builder: (context) => LoginView(key: args.key),
         settings: data,
       );
     },
     OnBoardingView: (data) {
-      return MaterialPageRoute<dynamic>(
+      return MaterialPageRoute<MaterialRoute<dynamic>>(
         builder: (context) => OnBoardingView(),
         settings: data,
       );
@@ -95,39 +92,33 @@ class StackedRouter extends RouterBase {
       var args = data.getArgs<SignupViewArguments>(
         orElse: () => SignupViewArguments(),
       );
-      return MaterialPageRoute<dynamic>(
+      return MaterialPageRoute<MaterialRoute<dynamic>>(
         builder: (context) => SignupView(key: args.key),
         settings: data,
       );
     },
     SearchView: (data) {
-      return MaterialPageRoute<dynamic>(
+      return MaterialPageRoute<MaterialRoute<dynamic>>(
         builder: (context) => SearchView(),
         settings: data,
       );
     },
     ProfileView: (data) {
-      return MaterialPageRoute<dynamic>(
+      return MaterialPageRoute<MaterialRoute<dynamic>>(
         builder: (context) => ProfileView(),
         settings: data,
       );
     },
     DetailsScreen: (data) {
       var args = data.getArgs<DetailsScreenArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
+      return MaterialPageRoute<MaterialRoute<dynamic>>(
         builder: (context) => DetailsScreen(args.product),
         settings: data,
       );
     },
     BasketView: (data) {
-      return MaterialPageRoute<dynamic>(
+      return MaterialPageRoute<MaterialRoute<dynamic>>(
         builder: (context) => BasketView(),
-        settings: data,
-      );
-    },
-    PaymentView: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => PaymentView(),
         settings: data,
       );
     },

@@ -15,16 +15,16 @@ class StartupViewModel extends BaseViewModel {
     await Future.delayed(Duration(seconds: 1));
 
     await _authService.initialize();
-    setupStripe();
+    //setupStripe();
     if (_authService.user != null) {
       return await _navigationService.replaceWithTransition(
         HomeView(),
-        transition: 'upToDown',
+        transitionStyle: Transition.upToDown,
       );
     } else {
       return await _navigationService.replaceWithTransition(
         OnBoardingView(),
-        transition: 'upToDown',
+        transitionStyle: Transition.upToDown,
       );
     }
   }
